@@ -2,132 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eden G-R Temple Bhog</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-        url("https://images.unsplash.com/photo-1600850056064-a8b380df8395");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      color: #fff;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 420px;
-      background: rgba(15, 15, 15, 0.85);
-      border-radius: 14px;
-      padding: 28px 22px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.8);
-      backdrop-filter: blur(6px);
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 6px;
-      font-size: 24px;
-      letter-spacing: 0.5px;
-    }
-
-    .subtitle {
-      text-align: center;
-      font-size: 14px;
-      opacity: 0.8;
-      margin-bottom: 24px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 14px;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      margin-bottom: 18px;
-      font-size: 14px;
-    }
-
-    input:focus {
-      box-shadow: 0 0 0 2px #ff7043;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
-      font-weight: 600;
-      background: linear-gradient(135deg, #ff7043, #ff8a65);
-      color: #000;
-      cursor: pointer;
-      transition: transform 0.1s ease;
-    }
-
-    button:active {
-      transform: scale(0.98);
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 16px;
-      font-size: 12px;
-      opacity: 0.6;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+
+  <div class="overlay"></div>
+
   <div class="container">
     <h1>🕉️ Eden G-R Temple Bhog</h1>
-    <div class="subtitle">Please fill the details carefully</div>
+    <p class="subtitle">Submit Bhog details with devotion 🙏</p>
 
-    <form id="bhogForm">
+    <form id="bhogForm" autocomplete="off">
+
+      <!-- Honeypot anti-spam field (DO NOT REMOVE) -->
+      <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+
       <label>Full Name *</label>
-      <input type="text" required />
+      <input type="text" id="name" required>
 
       <label>Block Number *</label>
-      <input type="text" required />
+      <input type="text" id="block" required>
 
       <label>Contact Number *</label>
-      <input type="tel" required />
+      <input type="tel" id="phone" required>
 
       <label>Email ID *</label>
-      <input type="email" required />
+      <input type="email" id="email" required>
 
-      <button type="submit">Submit</button>
+      <button type="submit" id="submitBtn">
+        <span class="btn-text">Submit Bhog</span>
+        <span class="loader"></span>
+      </button>
+
+      <p id="error" class="error"></p>
     </form>
-
-    <div class="footer">
-      🙏 Har Har Mahadev
-    </div>
   </div>
 
-  <script>
-    document.getElementById("bhogForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Form submitted successfully 🙏");
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
